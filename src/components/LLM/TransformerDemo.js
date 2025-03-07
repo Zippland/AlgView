@@ -228,7 +228,7 @@ const TransformerDemo = () => {
       <div className="mb-3">
         <button
           onClick={() => setShowExplanation(!showExplanation)}
-          className="text-sm text-blue-500 hover:underline"
+          className="text-sm text-white hover:underline"
         >
           {showExplanation ? '隐藏' : '显示'}解释
         </button>

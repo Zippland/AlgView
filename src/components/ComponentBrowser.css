@@ -1,61 +1,68 @@
 .component-browser {
   display: flex;
   height: calc(100vh - 120px);
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
+  border: 1px solid rgba(144, 202, 249, 0.5);
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  background: white;
 }
 
 /* 侧边栏样式 */
 .sidebar {
-  width: 200px;
-  background-color: #f5f5f5;
-  border-right: 1px solid #e0e0e0;
+  width: 220px;
+  background: linear-gradient(135deg, #f0f8ff 0%, #e6f7ff 100%);
+  border-right: 1px solid rgba(144, 202, 249, 0.5);
   overflow-y: auto;
   transition: width 0.3s ease;
   position: relative;
 }
 
 .sidebar.collapsed {
-  width: 50px;
+  width: 60px;
 }
 
 .sidebar-toggle {
   position: absolute;
   top: 15px;
   right: 10px;
-  background: none;
+  background: rgba(255, 255, 255, 0.2);
   border: none;
   color: white;
   cursor: pointer;
   z-index: 10;
   padding: 0;
   font-size: 16px;
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar-toggle:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.1);
 }
 
 .sidebar-title {
-  padding: 15px;
+  padding: 16px;
   margin: 0;
-  background-color: #4CAF50;
+  background: linear-gradient(135deg, #0288d1 0%, #01579b 100%);
   color: white;
   font-size: 16px;
   position: relative;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar.collapsed .sidebar-title {
   text-align: center;
-  padding: 15px 0;
+  padding: 16px 0;
 }
 
 .sidebar.collapsed .sidebar-title span {
@@ -69,37 +76,39 @@
 }
 
 .category-item {
-  padding: 12px 15px;
-  border-bottom: 1px solid #e0e0e0;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(144, 202, 249, 0.3);
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all 0.2s ease;
 }
 
 .sidebar.collapsed .category-item {
-  padding: 12px 0;
+  padding: 14px 0;
   text-align: center;
 }
 
 .category-item:hover {
-  background-color: #e8f5e9;
+  background-color: rgba(187, 222, 251, 0.5);
+  transform: translateX(3px);
 }
 
 .category-item.active {
-  background-color: #c8e6c9;
-  border-left: 4px solid #4CAF50;
+  background: linear-gradient(90deg, rgba(187, 222, 251, 0.6) 0%, rgba(144, 202, 249, 0.4) 100%);
+  border-left: 4px solid #0288d1;
 }
 
 .sidebar.collapsed .category-item.active {
   border-left: none;
-  border-right: 4px solid #4CAF50;
+  border-right: 4px solid #0288d1;
 }
 
 .category-name {
-  font-weight: bold;
+  font-weight: 600;
   margin-bottom: 5px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: #01579b;
 }
 
 .sidebar.collapsed .category-name {
@@ -109,7 +118,7 @@
 
 .category-description {
   font-size: 12px;
-  color: #666;
+  color: #546e7a;
 }
 
 .sidebar.collapsed .category-description {
@@ -122,6 +131,7 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  background: linear-gradient(135deg, #fafeff 0%, #f8fbff 100%);
 }
 
 .welcome-screen {
@@ -130,8 +140,10 @@
   justify-content: center;
   align-items: center;
   height: 100%;
-  background-color: #f9f9f9;
-  color: #333;
+  background: linear-gradient(120deg, #f5f9ff 0%, #e3f2fd 100%);
+  color: #01579b;
+  padding: 20px;
+  text-align: center;
 }
 
 .component-container {
@@ -140,38 +152,70 @@
 }
 
 .component-list {
-  width: 200px;
-  border-right: 1px solid #e0e0e0;
+  width: 220px;
+  border-right: 1px solid rgba(144, 202, 249, 0.5);
   overflow-y: auto;
-  background-color: #fafafa;
+  background: linear-gradient(135deg, #f0f8ff 0%, #e6f7ff 100%);
   transition: width 0.3s ease;
 }
 
 .component-list.collapsed {
-  width: 0;
-  overflow: hidden;
+  width: 40px;
+  overflow: visible;
+}
+
+.component-list.collapsed h2 {
+  padding: 16px 0;
+  text-align: center;
+  overflow: visible;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .component-list-toggle {
   position: absolute;
   top: 15px;
   right: 10px;
-  background: none;
+  background: rgba(2, 136, 209, 0.1);
   border: none;
-  color: #2e7d32;
+  color: #0277bd;
   cursor: pointer;
   z-index: 10;
   padding: 0;
   font-size: 16px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.component-list-toggle:hover {
+  background-color: rgba(2, 136, 209, 0.2);
+  transform: scale(1.1);
+}
+
+.component-list.collapsed .component-list-toggle {
+  position: relative;
+  top: 0;
+  right: 0;
+  margin: 0 auto;
 }
 
 .component-list h2 {
-  padding: 15px;
+  padding: 16px;
   margin: 0;
-  background-color: #e8f5e9;
-  color: #2e7d32;
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  color: #0288d1;
   font-size: 16px;
   position: relative;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .component-list ul {
@@ -181,32 +225,34 @@
 }
 
 .component-item {
-  padding: 12px 15px;
-  border-bottom: 1px solid #e0e0e0;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(144, 202, 249, 0.3);
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all 0.2s ease;
 }
 
 .component-item:hover {
-  background-color: #f1f8e9;
+  background-color: rgba(187, 222, 251, 0.5);
+  transform: translateX(3px);
 }
 
 .component-item.active {
-  background-color: #dcedc8;
-  border-left: 4px solid #8bc34a;
+  background: linear-gradient(90deg, rgba(187, 222, 251, 0.6) 0%, rgba(144, 202, 249, 0.4) 100%);
+  border-left: 4px solid #0288d1;
 }
 
 .component-name {
-  font-weight: bold;
+  font-weight: 600;
   margin-bottom: 5px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: #01579b;
 }
 
 .component-description {
   font-size: 12px;
-  color: #666;
+  color: #546e7a;
 }
 
 /* 组件显示区域 */
@@ -219,8 +265,22 @@
 .component-display h2 {
   margin-top: 0;
   padding-bottom: 10px;
-  border-bottom: 1px solid #e0e0e0;
-  color: #333;
+  border-bottom: 1px solid rgba(144, 202, 249, 0.5);
+  color: #0277bd;
+  position: relative;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.component-display h2:after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #039be5, #0277bd);
+  border-radius: 3px;
 }
 
 .component-content {
@@ -229,10 +289,24 @@
 
 .select-prompt {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
-  color: #999;
+  color: #546e7a;
+  padding: 30px;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(224, 242, 254, 0.3) 0%, rgba(235, 245, 255, 0.3) 100%);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(144, 202, 249, 0.2);
+}
+
+.select-prompt:before {
+  content: "🔍";
+  font-size: 2rem;
+  margin-bottom: 15px;
+  opacity: 0.7;
 }
 
 /* 响应式设计 */
@@ -245,12 +319,12 @@
   .sidebar {
     width: 100%;
     border-right: none;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid rgba(144, 202, 249, 0.5);
   }
   
   .sidebar.collapsed {
     width: 100%;
-    height: 50px;
+    height: 60px;
   }
   
   .component-container {
@@ -260,11 +334,11 @@
   .component-list {
     width: 100%;
     border-right: none;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid rgba(144, 202, 249, 0.5);
   }
   
   .component-list.collapsed {
-    height: 50px;
+    height: 60px;
     width: 100%;
   }
 } 

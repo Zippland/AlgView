@@ -70,30 +70,31 @@ const ComponentBrowser = () => {
           <div className="component-container">
             <div className={`component-list ${componentListCollapsed ? 'collapsed' : ''}`}>
               <h2>
-                {selectedCategory.name} 组件
+                {!componentListCollapsed && `${selectedCategory.name} 组件`}
                 <button className="component-list-toggle" onClick={toggleComponentList}>
                   {componentListCollapsed ? '»' : '«'}
                 </button>
               </h2>
-              <ul>
-                {selectedCategory.components.map((component, index) => (
-                  <li 
-                    key={index} 
-                    className={`component-item ${selectedComponent === component ? 'active' : ''}`}
-                    onClick={() => handleComponentSelect(component)}
-                    title={component.description}
-                  >
-                    <div className="component-name">{component.name}</div>
-                    <div className="component-description">{component.description}</div>
-                  </li>
-                ))}
-              </ul>
+              {!componentListCollapsed && (
+                <ul>
+                  {selectedCategory.components.map((component, index) => (
+                    <li 
+                      key={index} 
+                      className={`component-item ${selectedComponent === component ? 'active' : ''}`}
+                      onClick={() => handleComponentSelect(component)}
+                      title={component.description}
+                    >
+                      <div className="component-name">{component.name}</div>
+                      <div className="component-description">{component.description}</div>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
             
             <div className="component-display">
               {selectedComponent ? (
                 <>
-                  <h2>{selectedComponent.name}</h2>
                   <div className="component-content">
                     {renderComponent()}
                   </div>
@@ -107,7 +108,7 @@ const ComponentBrowser = () => {
           </div>
         ) : (
           <div className="welcome-screen">
-            <h1>欢迎使用组件浏览器</h1>
+            <h1>欢迎使用算法可视化工具</h1>
             <p>请从左侧选择一个组件类别开始</p>
           </div>
         )}
