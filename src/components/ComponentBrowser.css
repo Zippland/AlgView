@@ -1,0 +1,270 @@
+.component-browser {
+  display: flex;
+  height: calc(100vh - 120px);
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 侧边栏样式 */
+.sidebar {
+  width: 200px;
+  background-color: #f5f5f5;
+  border-right: 1px solid #e0e0e0;
+  overflow-y: auto;
+  transition: width 0.3s ease;
+  position: relative;
+}
+
+.sidebar.collapsed {
+  width: 50px;
+}
+
+.sidebar-toggle {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  z-index: 10;
+  padding: 0;
+  font-size: 16px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+}
+
+.sidebar-title {
+  padding: 15px;
+  margin: 0;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  position: relative;
+}
+
+.sidebar.collapsed .sidebar-title {
+  text-align: center;
+  padding: 15px 0;
+}
+
+.sidebar.collapsed .sidebar-title span {
+  display: none;
+}
+
+.category-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.category-item {
+  padding: 12px 15px;
+  border-bottom: 1px solid #e0e0e0;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.sidebar.collapsed .category-item {
+  padding: 12px 0;
+  text-align: center;
+}
+
+.category-item:hover {
+  background-color: #e8f5e9;
+}
+
+.category-item.active {
+  background-color: #c8e6c9;
+  border-left: 4px solid #4CAF50;
+}
+
+.sidebar.collapsed .category-item.active {
+  border-left: none;
+  border-right: 4px solid #4CAF50;
+}
+
+.category-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar.collapsed .category-name {
+  margin-bottom: 0;
+  font-size: 12px;
+}
+
+.category-description {
+  font-size: 12px;
+  color: #666;
+}
+
+.sidebar.collapsed .category-description {
+  display: none;
+}
+
+/* 主内容区样式 */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.welcome-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.component-container {
+  display: flex;
+  height: 100%;
+}
+
+.component-list {
+  width: 200px;
+  border-right: 1px solid #e0e0e0;
+  overflow-y: auto;
+  background-color: #fafafa;
+  transition: width 0.3s ease;
+}
+
+.component-list.collapsed {
+  width: 0;
+  overflow: hidden;
+}
+
+.component-list-toggle {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #2e7d32;
+  cursor: pointer;
+  z-index: 10;
+  padding: 0;
+  font-size: 16px;
+}
+
+.component-list h2 {
+  padding: 15px;
+  margin: 0;
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  font-size: 16px;
+  position: relative;
+}
+
+.component-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.component-item {
+  padding: 12px 15px;
+  border-bottom: 1px solid #e0e0e0;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.component-item:hover {
+  background-color: #f1f8e9;
+}
+
+.component-item.active {
+  background-color: #dcedc8;
+  border-left: 4px solid #8bc34a;
+}
+
+.component-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.component-description {
+  font-size: 12px;
+  color: #666;
+}
+
+/* 组件显示区域 */
+.component-display {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.component-display h2 {
+  margin-top: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e0e0e0;
+  color: #333;
+}
+
+.component-content {
+  margin-top: 20px;
+}
+
+.select-prompt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #999;
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+  .component-browser {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .sidebar.collapsed {
+    width: 100%;
+    height: 50px;
+  }
+  
+  .component-container {
+    flex-direction: column;
+  }
+  
+  .component-list {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .component-list.collapsed {
+    height: 50px;
+    width: 100%;
+  }
+} 
